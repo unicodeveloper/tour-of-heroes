@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name":"tour-of-heroes",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ],
+  "routes": [
+    {"src": "^/assets/(.*)", "headers": {"cache-control": "max-age=31536000,immutable"} },
+    {"src": "^/(.*).(css|js)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
+    {"src": "^/(.*).html", "headers": {"cache-control": "public,max-age=0,must-revalidate"} }
+  ]
+}
